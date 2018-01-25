@@ -1,11 +1,7 @@
 class DestinationsController < ApplicationController
-
-	#Should add before_create to verify destination is valid through google 
     
 
-
-
-
+    #Adds a destination to the session[:destinations] hash. 
 	def create
 		flash[:success] = "Destination Added"
 		session[:destinations] ||= Hash.new
@@ -15,6 +11,7 @@ class DestinationsController < ApplicationController
 		redirect_to root_url
 	end
 
+    #Deletes a destination from within the sessions[:destination] hash by :id key.
 	def destroy 
 		id = location_params[:id]
 		session[:destinations].delete(id)
@@ -22,7 +19,8 @@ class DestinationsController < ApplicationController
 	end
 
 	private 
-
+      
+      # Returns the next incrememntal id value to avoid overwriting destinations when adding new ones. 
 	  def get_id 
 	  	index = session[:destinations].length - 1 
 	  	current_id = session[:destinations].keys[index].to_i + 1

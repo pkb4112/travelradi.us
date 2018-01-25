@@ -1,0 +1,6 @@
+<ol>
+  <% @destinations.each do |id, destination_info| %>
+   <li><%= destination_info["address"]%> | <%=destination_info[:distance] %> | <%=destination_info[:time]%></li>
+   <%= link_to "Delete Destination", destinations_path(id: id), method: :delete %>
+  <%end%>
+<ol>

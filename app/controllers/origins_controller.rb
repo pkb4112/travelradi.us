@@ -1,5 +1,6 @@
 class OriginsController < ApplicationController
-
+     
+    #Stores the origin in the session.
 	def create
 		flash[:success] = "Origin Added"
 		session[:origin] = [] 
@@ -7,6 +8,7 @@ class OriginsController < ApplicationController
 		redirect_to root_url
 	end
 
+    #Deletes the origin from the session.
 	def destroy
 	session[:origin] = nil 
 	redirect_to root_url
