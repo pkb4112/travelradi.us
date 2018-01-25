@@ -1,9 +1,18 @@
 module StaticPagesHelper
 	def origin_set?
- 	  !!session[:origin]
+ 	  !session[:origin].nil?
   end
 
+
+  #Desperately in need of refactor. Temporary solution
   def destinations_set?
-  	session[:destinations].length >= 1
+  	if session[:destinations].nil?
+  		return false
+  	elsif session[:destinations].length < 1
+  		return false 
+  	else
+  		return true 
+  	end
   end
+
 end
