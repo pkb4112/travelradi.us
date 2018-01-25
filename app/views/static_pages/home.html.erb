@@ -1,2 +1,31 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<h1>Travel Radi.us</h1>
+
+<p> 
+<% if origin_set? %>
+  Origin Location: 
+  <b><%= @origin %></b>
+  <%= link_to "Reset Origin Location", origins_path, method: :delete %>
+<%else%>
+  <%=render 'shared/origin_form' %>
+<%end%>
+</p>
+
+
+<p> 
+<%=render 'shared/destinations_form' %>
+</p>
+
+<% if destinations_set? %>
+  <ol>
+  <% @destinations.each do |id, destination_info| %>
+   <li><%= destination_info["address"]%> | <%=destination_info[:distance] %> | <%=destination_info[:time]%></li>
+   <%= link_to "Delete Destination", destinations_path(id: id), method: :delete %>
+  <%end%>
+  <ol>
+<%end%>
+
+
+
+
+
+

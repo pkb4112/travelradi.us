@@ -1,0 +1,5 @@
+<%= form_tag('/origins/new', method: :get) do %>
+  <%= label_tag :origin %>
+  <%= text_field_tag :origin %>
+  <%= submit_tag "Set Origin", name: "" %>
+<%end%>
