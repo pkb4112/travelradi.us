@@ -4,9 +4,13 @@ module StaticPagesHelper
   end
 
 
-  #Desperately in need of refactor. Temporary solution
+  
   def destinations_set?
-  	return true
+  	if !session[:destinations].nil? && session[:destinations].first 
+  		return true
+  	else
+  		return false
+  	end
   end
 
 end
