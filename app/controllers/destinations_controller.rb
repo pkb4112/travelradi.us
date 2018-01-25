@@ -1,7 +1,13 @@
 class DestinationsController < ApplicationController
 
+	#Should add before_create to verify destination is valid through google 
+    
+
+
+
+
 	def create
-		flash[:success] = "Destinations Added"
+		flash[:success] = "Destination Added"
 		session[:destinations] ||= Hash.new
 		current_ID = session[:destinations].length + 1
 		session[:destinations][current_ID] = Hash.new

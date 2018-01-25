@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
     
   	if origin_set? && destinations_set?
   	  address_list = extract_addresses(@destinations)
-  	  
+
   	  @matrix = gmaps.distance_matrix(@origin, address_list, mode: 'driving', units: "imperial")
 
   	  @destinations.each do |id, value|

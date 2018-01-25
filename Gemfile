@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 #Additional Gems
 gem 'figaro'
 gem 'google_maps_service'
+gem 'bootstrap'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
