@@ -11,6 +11,19 @@ The app makes use of the Google Maps Distance Matrix API through means of the ['
 2. Enter an origin location and click "Set Origin Location"
 3. Enter a destination location and click "Add Destination"
 
+## Future Improvements
+
+ - Sharing - Generate a share url that will automatically load the origin/destinations for the receiving user.
+
+ - Front End - Make it look nicer. 
+
+ - Map Embed - Add an interactive map to show markers/routes between locations. 
+
+ - Comparison - Comparison of driving distance/time between multiple origin points for the same set of destinations. 
+
+ - Robustness - Protect against unknown/erroneous location input. 
+
+
 ### Prerequisites
 
 If running locally, you'll likely need to have postgresql installed. Though the application doesn't currently make use of postgresql, it's configured as such to leave room for future improvements.
