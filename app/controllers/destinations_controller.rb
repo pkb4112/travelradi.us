@@ -9,9 +9,9 @@ class DestinationsController < ApplicationController
 	def create
 		flash[:success] = "Destination Added"
 		session[:destinations] ||= Hash.new
-		current_ID = session[:destinations].length + 1
-		session[:destinations][current_ID] = Hash.new
-		session[:destinations][current_ID][:address] = location_params[:address]
+		current_id = get_id 
+		session[:destinations][current_id] = Hash.new
+		session[:destinations][current_id][:address] = location_params[:address]
 		redirect_to root_url
 	end
 
@@ -22,6 +22,12 @@ class DestinationsController < ApplicationController
 	end
 
 	private 
+
+	  def get_id 
+	  	index = session[:destinations].length - 1 
+	  	current_id = session[:destinations].keys[index].to_i + 1
+	  end
+
 	  def location_params
 	  	params.permit(:address, :id)
 	  end

@@ -2,28 +2,29 @@ class StaticPagesController < ApplicationController
 	include StaticPagesHelper
 
   def home
-  	gmaps ||= initialize_maps
   	@travel_time ||= Hash.new
     @origin = session[:origin][0] if origin_set?
     @destinations = session[:destinations] if destinations_set?
     
   	if origin_set? && destinations_set?
   	  address_list = extract_addresses(@destinations)
-
-  	  @matrix = gmaps.distance_matrix(@origin, address_list, mode: 'driving', units: "imperial")
-
-  	  @destinations.each do |id, value|
-  	  	  row_val = id.to_i - 1
+      @matrix = generate_distance_matrix(@origin,address_list,'driving','imperial')
+      @destinations.length.times do |x|
+  	  	  row_val = x
   	  	  distance = @matrix[:rows][0][:elements][row_val][:distance][:text]
   	  	  travel_time = @matrix[:rows][0][:elements][row_val][:duration][:text]
-  	      @destinations[id][:distance] = distance 
-  	      @destinations[id][:time] = travel_time   
+  	      @destinations.values[x][:distance] = distance 
+  	      @destinations.values[x][:time] = travel_time   
   	  end
     end
-
   end
 
   private
+
+  def generate_distance_matrix(origin,address_list,mode,units)
+  	gmaps ||= initialize_maps
+  	gmaps.distance_matrix(origin, address_list, mode: mode, units: units)
+  end
 
   def extract_addresses(destinations)
   	  destination_list = []
@@ -34,7 +35,6 @@ class StaticPagesController < ApplicationController
   end
 
   def initialize_maps
-  	# Initialize client using global parameters
      GoogleMapsService::Client.new
   end
 
