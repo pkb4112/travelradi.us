@@ -7,14 +7,14 @@
     </p>
 <%else%>
 
-  <div class = "form-group">
+
     <%= form_tag('/origins/new', method: :get, class: "form-inline justify-content-center") do %>
-    
-      <%= label_tag :origin %>
-      <%= text_field_tag :origin, nil, class: 'form-control' %>
-      <%= submit_tag "Set Origin", name: "", class: "btn btn-sm btn-primary " %>
-    
+      
+        <%= label_tag :origin %>
+        <%= text_field_tag :origin, nil, class: 'form-control mb-2 mr-sm-2' %>
+        <%= submit_tag "Set Origin", name: "", class: "btn btn-sm btn-primary " %>
+   
     <%end%>
-  </div>
+  
 <%end%>
 

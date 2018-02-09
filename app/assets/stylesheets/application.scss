@@ -2,7 +2,12 @@
 @import "font-awesome";
 
 
-
+.form-inline {
+    padding:5px;
+}
+.form-inline > * {
+    margin:5px 3px !important;
+}
 
 .list-group-item {
     padding: 3px 10px
@@ -12,6 +17,4 @@ ul {
    list-style: none;
    margin-left: 0;
    padding-left: 1em;
-   
-  
 }
