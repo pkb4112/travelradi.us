@@ -1,5 +1,5 @@
 <%= form_tag('/destinations/new', method: :get) do %>
   <%= label_tag :address, "Destination:" %>
   <%= text_field_tag :address %>
-  <%= submit_tag "Submit New Destination", name: "" %>
+  <%= submit_tag "Submit New Destination", name: "", class: "btn btn-sm" %>
 <%end%>

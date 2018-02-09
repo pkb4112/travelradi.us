@@ -1,5 +1,20 @@
-<%= form_tag('/origins/new', method: :get) do %>
-  <%= label_tag :origin %>
-  <%= text_field_tag :origin %>
-  <%= submit_tag "Set Origin", name: "" %>
+
+
+<%if origin_set? %>
+
+    <p class="h4"> <%= fa_icon "location-arrow" %>  Origin Location: <%= @origin %> 
+    <%= link_to "Reset Origin Location", origins_path, method: :delete, class: "btn btn-sm btn-danger" %>
+    </p>
+<%else%>
+
+  <div class = "form-group">
+    <%= form_tag('/origins/new', method: :get, class: "form-inline justify-content-center") do %>
+    
+      <%= label_tag :origin %>
+      <%= text_field_tag :origin, nil, class: 'form-control' %>
+      <%= submit_tag "Set Origin", name: "", class: "btn btn-sm btn-primary " %>
+    
+    <%end%>
+  </div>
 <%end%>
+

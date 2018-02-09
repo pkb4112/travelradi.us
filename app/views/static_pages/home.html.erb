@@ -1,22 +1,30 @@
-<h1>Travel Radi.us</h1>
 
-<p> 
-<% if origin_set? %>
-  Origin Location: 
-  <b><%= @origin %></b>
-  <%= link_to "Reset Origin Location", origins_path, method: :delete %>
-<%else%>
-  <%=render 'shared/origin_form' %>
-<%end%>
-</p>
+  
 
-<p> 
-<%=render 'shared/destinations_form' %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class= "col" align="center">
+      <%=render 'shared/origin_form' %>
+    </div>
+  </div>
+</div>
 
-<% if destinations_set? %>
-  <%=render 'shared/destinations_list' %>
-<%end%>
+<div class = "container">
+  <div class="row">
+  	<div class ="col-6">
+    <%=render 'shared/destinations_form' %>
+  </div>
+</div>
+
+  <div class="row">
+  	<div class ="col-6">
+    <% if destinations_set? %>
+      <%=render 'shared/destinations_list' %>
+    <%end%>
+  </div>
+  </div> 
+</div>
+
 
 
 

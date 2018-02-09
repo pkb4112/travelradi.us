@@ -1,6 +1,12 @@
-<ol>
+<ul class = "list-group list-group-flush">
   <% @destinations.each do |id, destination_info| %>
-   <li><%= destination_info["address"]%> | <%=destination_info[:distance] %> | <%=destination_info[:time]%></li>
-   <%= link_to "Delete Destination", destinations_path(id: id), method: :delete %>
+  
+       <li class = "list-group-item">
+       	  <%= fa_icon "map-marker" %> 
+       	  <%= destination_info["address"]%> | <%=destination_info[:distance] %> | <%=destination_info[:time] %>
+       	  <%= link_to (fa_icon "trash"), destinations_path(id: id), method: :delete, class: "btn btn-sm btn-danger"%> 
+       </li>
+       
+            	     
   <%end%>
-<ol>
+</ul>
