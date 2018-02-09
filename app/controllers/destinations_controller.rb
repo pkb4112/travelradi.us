@@ -3,7 +3,7 @@ class DestinationsController < ApplicationController
 
     #Adds a destination to the session[:destinations] hash. 
 	def create
-		flash[:success] = "Destination Added"
+		#flash[:success] = "Destination Added"
 		session[:destinations] ||= Hash.new
 		current_id = get_id 
 		session[:destinations][current_id] = Hash.new

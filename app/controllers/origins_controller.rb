@@ -2,7 +2,7 @@ class OriginsController < ApplicationController
      
     #Stores the origin in the session.
 	def create
-		flash[:success] = "Origin Added"
+		#flash[:success] = "Origin Added"
 		session[:origin] = [] 
 		session[:origin][0] = location_params[:origin]
 		redirect_to root_url

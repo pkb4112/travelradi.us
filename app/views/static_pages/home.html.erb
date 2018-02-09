@@ -7,23 +7,29 @@
       <%=render 'shared/origin_form' %>
     </div>
   </div>
-</div>
 
-<div class = "container">
+
+
   <div class="row">
-  	<div class ="col-6">
+  	<div class ="col-lg-6">
     <%=render 'shared/destinations_form' %>
-  </div>
-</div>
-
-  <div class="row">
+     <div class="row">
   	<div class ="col-auto">
     <% if destinations_set? %>
       <%=render 'shared/destinations_list' %>
     <%end%>
   </div>
   </div> 
+  </div>
+  <div class ="col-lg-6">
+    <%=render 'shared/google_map' %>
+  </div>
 </div>
+</div>
+
+
+ 
+
 
 
 
