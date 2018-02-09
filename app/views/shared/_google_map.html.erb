@@ -1,3 +1,5 @@
-<% if origin_set? %>
-  <%= image_tag static_map(@origin), class: "img-fluid rounded" %>
+<% if destinations_set? %>
+ <%= image_tag static_map(@destinations), class: "img-fluid rounded" %>
+<% elsif origin_set? %>
+  <%= image_tag origin_map(@origin), class: "img-fluid rounded" %>
 <% end %>
