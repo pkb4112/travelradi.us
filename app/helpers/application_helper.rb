@@ -19,4 +19,9 @@ module ApplicationHelper
   "https://maps.googleapis.com/maps/api/staticmap?size=570x600&markers=color:red%7C#{destination_list}%7C&key=#{ENV["STATIC_MAPS_API_KEY"]}"
   end
 
+  #Not implemented
+  def embed_map_url(destinations)
+  "https://www.google.com/maps/embed/v1/place?key=#{ENV["EMBED_API_KEY"]}&q=record+stores+in+Seattle"
+  end
+
 end
